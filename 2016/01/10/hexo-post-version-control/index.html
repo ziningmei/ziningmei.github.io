@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="utf-8">
+  
+  <title>关联 GitHub, 让 Hexo 支持查看文章更新历史 | ziningmei&#39;blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言Hexo 的文章源文件就是一个个 Markdown 文本，自己一直把这些文件备份在 GitHub 上。渐渐发觉，如果只把 GitHub 当作普通网盘，那真是有点大材小用了。于是稍作折腾，成功地把 GitHub 上的备份关联到主题中。现在，在文章文末版权区，可以很方便地跳转查看文章更新记录、历史版本以及下载源文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关联 GitHub, 让 Hexo 支持查看文章更新历史">
+<meta property="og:url" content="http://yoursite.com/2016/01/10/hexo-post-version-control/index.html">
+<meta property="og:site_name" content="ziningmei'blog">
+<meta property="og:description" content="前言Hexo 的文章源文件就是一个个 Markdown 文本，自己一直把这些文件备份在 GitHub 上。渐渐发觉，如果只把 GitHub 当作普通网盘，那真是有点大材小用了。于是稍作折腾，成功地把 GitHub 上的备份关联到主题中。现在，在文章文末版权区，可以很方便地跳转查看文章更新记录、历史版本以及下载源文件。">
+<meta property="og:image" content="http://yoursite.com/resources/version-control.png">
+<meta property="og:image" content="http://yoursite.com/resources/Blame.png">
+<meta property="og:image" content="http://yoursite.com/resources/History.png">
+<meta property="og:image" content="http://yoursite.com/resources/Raw.png">
+<meta property="og:updated_time" content="2016-04-03T14:36:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关联 GitHub, 让 Hexo 支持查看文章更新历史">
+<meta name="twitter:description" content="前言Hexo 的文章源文件就是一个个 Markdown 文本，自己一直把这些文件备份在 GitHub 上。渐渐发觉，如果只把 GitHub 当作普通网盘，那真是有点大材小用了。于是稍作折腾，成功地把 GitHub 上的备份关联到主题中。现在，在文章文末版权区，可以很方便地跳转查看文章更新记录、历史版本以及下载源文件。">
+<meta name="twitter:image" content="http://yoursite.com/resources/version-control.png">
+  
+    <link rel="alternative" href="/atom.xml" title="ziningmei&#39;blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/touxiang.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/touxiang.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">ziningmei</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">程序员爬坑之路</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:1152581796@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/ziningmei" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ziningmei</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/touxiang.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ziningmei</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">程序员爬坑之路</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:1152581796@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/ziningmei" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-hexo-post-version-control" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/10/hexo-post-version-control/" class="article-date">
+      <time datetime="2016-01-10T14:38:01.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关联 GitHub, 让 Hexo 支持查看文章更新历史
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p></p><h2 id="intro">前言</h2>Hexo 的文章源文件就是一个个 Markdown 文本，自己一直把这些文件备份在 <a href="https://github.com/MOxFIVE/Markdown-Archives-Backup" target="_blank" rel="external">GitHub</a> 上。渐渐发觉，如果只把 GitHub 当作普通网盘，那真是有点大材小用了。于是稍作折腾，成功地把 GitHub 上的备份关联到主题中。现在，在文章文末版权区，可以很方便地跳转查看文章更新记录、历史版本以及下载源文件。<p></p>
+<a id="more"></a>
+<p><img src="/resources/version-control.png" alt="version-control"></p>
+<h2 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h2><h3 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h3><ul>
+<li>为了便于文章识别和自动关联文件，文章 Markdown 的文件名应该符合规范。</li>
+<li>建议使用 文章建立日期.固定链接 <code>YY-MM-DD.permalink.md</code> 的形式。</li>
+<li>在文章 [Front-matter] 中设置固定链接 permalink，然后填写文件名，例如本文完整文件名为 <code>2016-01-10.hexo-post-version-control.md</code></li>
+<li>为什么不使用文章标题作为文件名:<blockquote>
+<p>一是因为标题偶尔会变动，修改相对麻烦；二是标题可能包含不能用作文件名的符号，导致关联出错。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="文件备份"><a href="#文件备份" class="headerlink" title="文件备份"></a>文件备份</h3><ul>
+<li>把 <code>hexo/sources/_posts</code> 文件夹同步备份到你的 GitHub 上，不熟悉 Git 的可使用 GitHub Desktop 操作，具体方法自行搜索。</li>
+</ul>
+<h2 id="代码添加"><a href="#代码添加" class="headerlink" title="代码添加"></a>代码添加</h2><p>把下面 EJS 代码添加到主题文章模板合适位置中，<a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">Yelee</a> 主题是添加在文末版权区中。参考备份文件在 Github 的链接修改前半部分地址。</p>
+<figure class="highlight plain"><figcaption><span>yelee/layout/_partial/post/nav.ejs</span><a href="https://github.com/MOxFIVE/M-Hexo-Blog/commit/d8a4942dab23920837cc70249c31697d36e49235" target="_blank" rel="external">Post Version Control</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (post.backup != false)&#123; %&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &lt;span&gt;更新历史:&lt;/span&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;文章 Blame 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;顺序查看文章各部分修改记录&quot; target = &quot;_blank&quot;&gt;Blame&lt;/a&gt;,</span><br><span class="line">        &lt;a href=&quot;&lt;文章 History 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;查看文章有关更新记录&quot; target = &quot;_blank&quot;&gt;History&lt;/a&gt;&lt;span class=&quot;raw&quot;&gt;文本模式:&lt;/span&gt;&lt;i class=&quot;fa fa-file-text-o&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;文章 Raw 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;查看 &amp; 下载文章 Markdown 原始文本&quot; target = &quot;_blank&quot;&gt; .md Raw&lt;/a&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="代码简析"><a href="#代码简析" class="headerlink" title="代码简析"></a>代码简析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 不设置 backup: false 则默认显示 --&gt;</span><br><span class="line">&lt;% if (post.backup != false)&#123; %&gt;</span><br><span class="line">    &lt;p&gt; </span><br><span class="line">        &lt;span&gt;更新历史:&lt;/span&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;!-- 不同功能替换前面超链接即可，文件名不变 --&gt;</span><br><span class="line">        &lt;!-- 文件名生成: &lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt; --&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;文章 Blame 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;顺序查看文章各部分修改记录&quot; target = &quot;_blank&quot;&gt;Blame&lt;/a&gt;,</span><br><span class="line">        &lt;a href=&quot;&lt;文章 History 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;查看文章有关更新记录&quot; target = &quot;_blank&quot;&gt;History&lt;/a&gt;&lt;span class=&quot;raw&quot;&gt;文本模式:&lt;/span&gt;&lt;i class=&quot;fa fa-file-text-o&quot;&gt;&lt;/i&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;文章 Raw 地址&gt;/&lt;%= post.date.format(&quot;YYYY-MM-DD&quot;) %&gt;.&lt;%= post.slug %&gt;.md&quot; title=&quot;查看 &amp; 下载文章 Markdown 原始文本&quot; target = &quot;_blank&quot;&gt; .md Raw&lt;/a&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Blame"><a href="#Blame" class="headerlink" title="Blame"></a>Blame</h3><ul>
+<li>顺序列出文章内容，左侧显示各部分 commit 信息，最后修改时间等。<br><img src="/resources/Blame.png" alt="Blame"></li>
+</ul>
+<h3 id="History"><a href="#History" class="headerlink" title="History"></a>History</h3><ul>
+<li>列出与该文件相关的更新记录 (commit)，按路径匹配。我一般直接就用提交时间作为 commit 信息了，想要更直观查看变动的可以在提交时书写更完善的 commit 信息。</li>
+</ul>
+<p><img src="/resources/History.png" alt="History"></p>
+<h3 id="md-Raw"><a href="#md-Raw" class="headerlink" title=".md Raw"></a>.md Raw</h3><ul>
+<li>在线查看或者直接下载文章原始 Markdown 文本。<br><img src="/resources/Raw.png" alt="Raw"></li>
+</ul>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><blockquote>
+<ul>
+<li>这是半自动的版本控制，需要手动把文章同步备份到 GitHub；</li>
+<li>代码部分的变动基于 <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">Yelee</a> 主题，其它主题用户可以参考 <a href="/2015/10/25/hexo-tag-cloud/">另一篇文章</a> 的方法，自行添加代码到合适位置；</li>
+<li>小图标来自 Font Awesome，需主题支持才会正常显示；</li>
+<li>本文不详解 Hexo 基础知识，有设置项不理解的请先阅读 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo 官方帮助文档</a>。</li>
+</ul>
+</blockquote>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ol>
+<li><strong>GitHub Desktop</strong>: <a href="https://desktop.github.com/" target="_blank" rel="external">https://desktop.github.com/</a></li>
+<li><strong>Font Awesome</strong>: <a href="http://fontawesome.io/" target="_blank" rel="external">http://fontawesome.io/</a></li>
+<li><strong>Hexo 使用文档</strong>: <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></li>
+<li><strong><em>Hexo 文章版本控制</em></strong>  by <strong>MOxFIVE</strong> on <code>2016/01/10</code>: <a href="https://github.com/MOxFIVE/M-Hexo-Blog/commit/d8a4942dab23920837cc70249c31697d36e49235" target="_blank" rel="external">https://github.com/MOxFIVE/M-Hexo-Blog/commit/d8a4942dab23920837cc70249c31697d36e49235</a></li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2016/01/10/hexo-post-version-control/">关联 GitHub, 让 Hexo 支持查看文章更新历史</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">ziningmei</a></p>
+        <p><span>Created:</span>2016-01-10, 22:38:01</p>
+        <p><span>Updated:</span>2016-04-03, 22:36:20</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2016/01/10/hexo-post-version-control/" title="关联 GitHub, 让 Hexo 支持查看文章更新历史">http://yoursite.com/2016/01/10/hexo-post-version-control/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/01/10/hexo-post-version-control/　　By ziningmei" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理"><span class="toc-number">2.</span> <span class="toc-text">文件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件命名"><span class="toc-number">2.1.</span> <span class="toc-text">文件命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件备份"><span class="toc-number">2.2.</span> <span class="toc-text">文件备份</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码添加"><span class="toc-number">3.</span> <span class="toc-text">代码添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码简析"><span class="toc-number">4.</span> <span class="toc-text">代码简析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Blame"><span class="toc-number">4.1.</span> <span class="toc-text">Blame</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#History"><span class="toc-number">4.2.</span> <span class="toc-text">History</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#md-Raw"><span class="toc-number">4.3.</span> <span class="toc-text">.md Raw</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">5.</span> <span class="toc-text">后记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">6.</span> <span class="toc-text">相关链接</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <li id="bds_twi"><a href="#" class="bds_twi" data-cmd="twi" title="分享到推特"></a></li>
+            <li id="bds_tsina"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li id="bds_sqq"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a></li>
+            <li id="bds_copy"><a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a></li>
+            <li id="bds_mail"><a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a></li>
+            <li id="bds_weixin"><a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a></li>
+            <li id="bds_more"><a href="#" class="bds_more" data-cmd="more"></i></a></li>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"关联 GitHub, 让 Hexo 支持查看文章更新历史　| ziningmei'blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/10/hexo-post-version-control/">关联 GitHub, 让 Hexo 支持查看文章更新历史</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 ziningmei
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
