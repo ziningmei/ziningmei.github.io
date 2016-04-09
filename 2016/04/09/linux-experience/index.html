@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Hexo | ziningmei&#39;blog</title>
+  <title>linux服务器常用命令 | ziningmei&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ziningmei'blog">
-<meta property="og:url" content="http://yoursite.com/tags/Hexo/index.html">
+  <meta name="description" content="入门申请服务器我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用
+入门使用使用ssh工具连接服务器，mac直接使用terminal，命令 ssh root@121.42.166.*然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行建议安装appnode方便管理，目前公测免费的，地址：https://www.appnode.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux服务器常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/04/09/linux-experience/index.html">
 <meta property="og:site_name" content="ziningmei'blog">
-<meta property="og:description">
+<meta property="og:description" content="入门申请服务器我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用
+入门使用使用ssh工具连接服务器，mac直接使用terminal，命令 ssh root@121.42.166.*然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行建议安装appnode方便管理，目前公测免费的，地址：https://www.appnode.com">
+<meta property="og:updated_time" content="2016-04-09T15:24:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ziningmei'blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="linux服务器常用命令">
+<meta name="twitter:description" content="入门申请服务器我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用
+入门使用使用ssh工具连接服务器，mac直接使用terminal，命令 ssh root@121.42.166.*然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行建议安装appnode方便管理，目前公测免费的，地址：https://www.appnode.com">
   
     <link rel="alternative" href="/atom.xml" title="ziningmei&#39;blog" type="application/atom+xml">
   
@@ -42,9 +46,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false,
       }
@@ -229,58 +233,185 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-linux-experience" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/04/03/hello-world/" class="archive-article-date">
-      <time datetime="2016-04-03T15:29:51.000Z" itemprop="datePublished">04-03</time>
+    <div class="article-meta">
+      <a href="/2016/04/09/linux-experience/" class="article-date">
+      <time datetime="2016-04-09T14:43:54.000Z" itemprop="datePublished">2016-04-09</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/03/hello-world/">Hello World</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux服务器常用命令
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/编程技巧/">编程技巧</a>
-    </div>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="申请服务器"><a href="#申请服务器" class="headerlink" title="申请服务器"></a>申请服务器</h3><p>我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用</p>
+<h3 id="入门使用"><a href="#入门使用" class="headerlink" title="入门使用"></a>入门使用</h3><p>使用ssh工具连接服务器，mac直接使用terminal，命令 <code>ssh root@121.42.166.*</code><br>然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行<br>建议安装appnode方便管理，目前公测免费的，地址：<a href="https://www.appnode.com/" target="_blank" rel="external">https://www.appnode.com/</a></p>
+<a id="more"></a>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="解压，-tar-gz-文件"><a href="#解压，-tar-gz-文件" class="headerlink" title="解压，*.tar.gz 文件"></a>解压，*.tar.gz 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf *.tar.gz</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/09/linux-experience/">linux服务器常用命令</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ziningmei</a></p>
+        <p><span>发布时间:</span>2016-04-09, 22:43:54</p>
+        <p><span>最后更新:</span>2016-04-09, 23:24:46</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/09/linux-experience/" title="linux服务器常用命令">http://yoursite.com/2016/04/09/linux-experience/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/04/09/linux-experience/　　作者: ziningmei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/09/html-experience/">
+                    html画页面的时候遇到的一些问题
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#入门"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#申请服务器"><span class="toc-number">1.1.</span> <span class="toc-text">申请服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门使用"><span class="toc-number">1.2.</span> <span class="toc-text">入门使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压，-tar-gz-文件"><span class="toc-number">2.1.</span> <span class="toc-text">解压，*.tar.gz 文件</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <li id="bds_twi"><a href="#" class="bds_twi" data-cmd="twi" title="分享到推特"></a></li>
+            <li id="bds_tsina"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li id="bds_sqq"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a></li>
+            <li id="bds_copy"><a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a></li>
+            <li id="bds_mail"><a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a></li>
+            <li id="bds_weixin"><a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a></li>
+            <li id="bds_more"><a href="#" class="bds_more" data-cmd="more"></i></a></li>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"linux服务器常用命令　| ziningmei'blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/09/html-experience/" title="下一篇: html画页面的时候遇到的一些问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/linux-experience/">linux服务器常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/html-experience/">html画页面的时候遇到的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/03/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
