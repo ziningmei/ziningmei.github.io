@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="ziningmei'blog">
 <meta property="og:description" content="入门申请服务器我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用
 入门使用使用ssh工具连接服务器，mac直接使用terminal，命令 ssh root@121.42.166.*然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行建议安装appnode方便管理，目前公测免费的，地址：https://www.appnode.com">
-<meta property="og:updated_time" content="2016-04-09T15:24:46.000Z">
+<meta property="og:updated_time" content="2016-04-09T15:37:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux服务器常用命令">
 <meta name="twitter:description" content="入门申请服务器我使用的是阿里云ECS，系统选的是centos6.5，因为有云翼计划，大学生一个月9.9，配置基本足够实用
@@ -157,7 +157,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/Js/" style="font-size: 10px;">Js</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a>
+                        <a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Html/" style="font-size: 10px;">Html</a> <a href="/tags/Js/" style="font-size: 10px;">Js</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a>
                     </div>
                 </section>
                 
@@ -275,6 +275,7 @@
 <h3 id="入门使用"><a href="#入门使用" class="headerlink" title="入门使用"></a>入门使用</h3><p>使用ssh工具连接服务器，mac直接使用terminal，命令 <code>ssh root@121.42.166.*</code><br>然后会提示输入密码，mac命令行默认是看不见的，正确输入回车就行<br>建议安装appnode方便管理，目前公测免费的，地址：<a href="https://www.appnode.com/" target="_blank" rel="external">https://www.appnode.com/</a></p>
 <a id="more"></a>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="解压，-tar-gz-文件"><a href="#解压，-tar-gz-文件" class="headerlink" title="解压，*.tar.gz 文件"></a>解压，*.tar.gz 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf *.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="安装软件（比如apache）"><a href="#安装软件（比如apache）" class="headerlink" title="安装软件（比如apache）"></a>安装软件（比如apache）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -285,7 +286,7 @@
         <p><span>本文标题:</span><a href="/2016/04/09/linux-experience/">linux服务器常用命令</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ziningmei</a></p>
         <p><span>发布时间:</span>2016-04-09, 22:43:54</p>
-        <p><span>最后更新:</span>2016-04-09, 23:24:46</p>
+        <p><span>最后更新:</span>2016-04-09, 23:37:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/04/09/linux-experience/" title="linux服务器常用命令">http://yoursite.com/2016/04/09/linux-experience/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/04/09/linux-experience/　　作者: ziningmei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -301,6 +302,12 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/04/10/nginx-problem/">
+                    nginx遇到的问题
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2016/04/09/html-experience/">
@@ -315,7 +322,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#入门"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#申请服务器"><span class="toc-number">1.1.</span> <span class="toc-text">申请服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门使用"><span class="toc-number">1.2.</span> <span class="toc-text">入门使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压，-tar-gz-文件"><span class="toc-number">2.1.</span> <span class="toc-text">解压，*.tar.gz 文件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#入门"><span class="toc-number">1.</span> <span class="toc-text">入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#申请服务器"><span class="toc-number">1.1.</span> <span class="toc-text">申请服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门使用"><span class="toc-number">1.2.</span> <span class="toc-text">入门使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压，-tar-gz-文件"><span class="toc-number">2.1.</span> <span class="toc-text">解压，*.tar.gz 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装软件（比如apache）"><span class="toc-number">2.2.</span> <span class="toc-text">安装软件（比如apache）</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -392,7 +399,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/04/10/nginx-problem/" title="上一篇: nginx遇到的问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -404,7 +413,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/linux-experience/">linux服务器常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/html-experience/">html画页面的时候遇到的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/03/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/10/nginx-problem/">nginx遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/linux-experience/">linux服务器常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/09/html-experience/">html画页面的时候遇到的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/03/hello-world/">Hello World</a></li></ul>
 
 
 
